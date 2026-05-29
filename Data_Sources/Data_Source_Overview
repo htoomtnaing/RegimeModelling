@@ -6,7 +6,9 @@ See Industry Portfolios (10, 12, 17, 30, 38, 49)
 
 From WRDS
 
-1. Interest_Rates_FRED - Describes Quarterly US Treasury and Inflation Indexes on both return and level. Taken from CRSP
+1. SG_Index_Data - Describes daily returns of SG Index from 1984
+
+2. CPI_InterestRates - Describes Quarterly US Treasury and Inflation Indexes on both return and level. Taken from CRSP
 - B30: 30y Bond
 - B20: 20y Bond
 - B10: 10y Bond
@@ -17,7 +19,7 @@ From WRDS
 - T30: 30D Treasury Bill
 - CPI: CPI Index (Inflation)
 
-2. Interest_Rate_Daily - Describes all available credit ratings including high yield interest rates. Taken from Federal Reserve Board Reports
+3. Interest_Rate_Daily - Describes all available credit ratings including high yield interest rates. Taken from Federal Reserve Board Reports
 
 (daaa) Moody's Aaa
 (dbaa) Moody's Baa
