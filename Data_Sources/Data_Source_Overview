@@ -8,6 +8,9 @@ From WRDS
 
 1. SG_Index_Data - Describes daily returns of SG Index from 1984
 
+2. ^SPGSCI from yfinance - Describes daily returns of commodities index from 1984
+
+
 2. CPI_InterestRates - Describes Quarterly US Treasury and Inflation Indexes on both return and level. Taken from CRSP
 - B30: 30y Bond
 - B20: 20y Bond
@@ -19,7 +22,7 @@ From WRDS
 - T30: 30D Treasury Bill
 - CPI: CPI Index (Inflation)
 
-3. Interest_Rate_Daily - Describes all available credit ratings including high yield interest rates. Taken from Federal Reserve Board Reports
+3. Interest_Rate_Daily - Describes all available credit ratings including high yield interest rates. Taken from Federal Reserve Board Reports (FRED)
 
 (daaa) Moody's Aaa
 (dbaa) Moody's Baa
@@ -103,6 +106,3 @@ From WRDS
 (bamlc0a1caaaey) ICE BofA AAA US Corporate Index Effective Yield
 (bamlh0a1hybbey) ICE BofA BB US High Yield Index Effective Yield
 (bamlh0a3hycey) ICE BofA CCC & Lower US High Yield Index Effective Yield
-
-
-2. 
