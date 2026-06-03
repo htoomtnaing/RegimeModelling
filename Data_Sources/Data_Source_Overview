@@ -1,0 +1,108 @@
+From https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/data_library.html:
+
+1. Equity Data
+See Industry Portfolios (10, 12, 17, 30, 38, 49)
+
+
+From WRDS
+
+1. SG_Index_Data - Describes daily returns of SG Index from 1984
+
+2. ^SPGSCI from yfinance - Describes daily returns of commodities index from 1984
+
+
+2. CPI_InterestRates - Describes Quarterly US Treasury and Inflation Indexes on both return and level. Taken from CRSP
+- B30: 30y Bond
+- B20: 20y Bond
+- B10: 10y Bond
+- B7
+- B5
+- B2
+- T90: 90D Treasury Bill
+- T30: 30D Treasury Bill
+- CPI: CPI Index (Inflation)
+
+3. Interest_Rate_Daily - Describes all available credit ratings including high yield interest rates. Taken from Federal Reserve Board Reports (FRED)
+
+(daaa) Moody's Aaa
+(dbaa) Moody's Baa
+(dcd1m) CDs Secondary Market 1-month
+(dcd90) CDs Secondary Market 3-month
+(d_ba_m6) Bankers Acceptances (top rated) (Historical). 6-month
+(dcd6m) CDs Secondary Market 6-month
+(h1rifsgfpam03nb) TBills Auction High (Historical) 3-month
+(h0rifsgfpam06nb) TBills Auction High (Historical) 6-month
+(h0rifsgfpay01nb) TBills Auction High (Historical) 1-year
+(dbkac) Bankers Acceptances (Historical). 3-month
+(d_cp_m1) Commercial Paper. (Historical). 1-month
+(d_cp_m3) Commercial Paper. (Historical). 3-month
+(d_cp_m6) Commercial Paper. (Historical). 6-month
+(dltboard) Treasury. Composite. Over 10 years. (Long Term) (Historical)
+(d_dwb_na) Discount Window Borrowing (Historical)
+(d_fp_m1) Financial Paper Placed Directly (Historical). 1-month
+(d_fp_m3) Financial Paper Placed Directly (Historical). 3-month
+(d_fp_m6) Financial Paper Placed Directly (Historical). 6-month
+(rifsppcusnb) Nonfinancial or financial Commercial Paper posted by CPFF, with surcharge. 3-month
+(d_ltnom_y25p) Treasury Long Term Average (25 years and above) (Historical)
+(rifsppcunb) Nonfinancial or financial Commercial Paper posted by CPFF, without surcharge. 3-month
+(d_tcmnom_y20) Treasury Constant Maturity (historical). 20-year
+(dpcredit) Discount Window Primary Credit
+(ded1) Eurodollar Deposit (London) 1-month
+(ded3) Eurodollar Deposit (London) 3-month
+(ded6) Eurodollar Deposit (London) 6-month
+(effr) Effective Federal Funds Rate
+(dff) Federal Funds
+(dltiit) Treasury Long Term Average Inflation-indexed(10 years and above)
+(obfr) Overnight Bank Funding Rate
+(dprime) Bank Prime Loan
+(sofr) Secured Overnight Financing Rate
+(dswp1) Interest Rate Swaps 1-year
+(dswp10) Interest Rate Swaps 10-year
+(dswp2) Interest Rate Swaps 2-year
+(dswp3) Interest Rate Swaps 3-year
+(dswp30) Interest Rate Swaps 30-year
+(dswp4) Interest Rate Swaps 4-year
+(dswp5) Interest Rate Swaps 5-year
+(dswp7) Interest Rate Swaps 7-year
+(dtb3) TBills Secondary Market 3-month
+(dtb6) TBills Secondary Market 6-month
+(dtb4wk) TBills Secondary Market 4-week
+(dtb1yr) TBills Secondary Market 1-year
+(dfii10) Treasury Constant Maturity, Inflation-indexed 10-year
+(dfii20) Treasury Constant Maturity, Inflation-indexed 20-year
+(dfii30) Treasury Constant Maturity, Inflation-indexed 30-year
+(dfii5) Treasury Constant Maturity, Inflation-indexed 5-year
+(dfii7) Treasury Constant Maturity, Inflation-indexed 7-year
+(dgs1mo) Treasury Constant Maturity 1-month
+(dgs3mo) Treasury Constant Maturity 3-month
+(dgs6mo) Treasury Constant Maturity 6-month
+(dgs1) Treasury Constant Maturity 1-year
+(dgs10) Treasury Constant Maturity 10-year
+(dgs2) Treasury Constant Maturity 2-year
+(dgs20) Treasury Constant Maturity 20-year
+(dgs3) Treasury Constant Maturity 3-year
+(dgs30) Treasury Constant Maturity 30-year
+(dgs5) Treasury Constant Maturity 5-year
+(dgs7) Treasury Constant Maturity 7-year
+(dcpf3m) 3-month AA Financial CP Rate
+(dcpn3m) 3-month AA Nonfinancial CP Rate
+(dcpf2m) 2-month AA Financial CP Rate
+(dcpn2m) 2-month AA Nonfinancial CP Rate
+(dcpf1m) 1-month AA Financial CP Rate
+(dcpn30) 1-month AA Nonfinancial CP Rate
+(dfedtaru) Federal Funds Target Range - Upper Limit
+(dfedtarl) Federal Funds Target Range - Lower Limit
+(tedrate) TED Spread (Libor - Treasury)
+(t10y2y) 10 year treasury minus 2 year treasury
+(t10y3m) 10 year treasury minus 3 month treasury
+(t10yie) 10-year breakeven inflation rate
+(t5yie) 5-year breakeven inflation rate
+(iorb) Interest rate on reserve balances
+(ioer) Interest Rate on Excess Reserves (IOER Rate) (DISCONTINUED)
+(iorr) Interest Rate on Required Reserves (IORR Rate) (DISCONTINUED)
+(bamlh0a0hym2) ICE BofA US High Yield Index Option-Adjusted Spread
+(bamlh0a0hym2ey) ICE BofA US High Yield Index Effective Yield
+(bamlc0a0cmey) ICE BofA US Corporate Index Effective Yield
+(bamlc0a1caaaey) ICE BofA AAA US Corporate Index Effective Yield
+(bamlh0a1hybbey) ICE BofA BB US High Yield Index Effective Yield
+(bamlh0a3hycey) ICE BofA CCC & Lower US High Yield Index Effective Yield
