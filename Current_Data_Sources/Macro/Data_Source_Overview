@@ -10,19 +10,18 @@ From WRDS
 
 2. ^SPGSCI from yfinance - Describes daily returns of commodities index from 1984
 
-
-2. CPI_InterestRates - Describes Quarterly US Treasury and Inflation Indexes on both return and level. Taken from CRSP
+3. CPI_InterestRates - Describes Quarterly US Treasury and Inflation Indexes on both return and level. Taken from CRSP
 - B30: 30y Bond
 - B20: 20y Bond
 - B10: 10y Bond
-- B7
-- B5
-- B2
+- B7: 7y Bond
+- B5: 5y Bond
+- B2: 2y Bond
 - T90: 90D Treasury Bill
 - T30: 30D Treasury Bill
 - CPI: CPI Index (Inflation)
 
-3. Interest_Rate_Daily - Describes all available credit ratings including high yield interest rates. Taken from Federal Reserve Board Reports (FRED)
+4. Interest_Rate_Daily - Describes all available credit ratings including high yield interest rates. Taken from Federal Reserve Board Reports (FRED)
 
 (daaa) Moody's Aaa
 (dbaa) Moody's Baa
