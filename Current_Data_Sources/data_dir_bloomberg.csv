@@ -1,0 +1,32 @@
+index_name,file_name,index_short_name,ticker,region,category,start_date,end_date
+Bloomberg Commodity Index,BCOMTR_Bloomberg_Commodity_Index.xlsx,COMMODITY BCOM,BCOMTR Index,world,commodity,1960-01-04 0:00,2026-06-02 0:00
+Goldman Sachs Commodity Index,SPGSCITR_SnP_GSCI_Total_Return.xlsx,COMMODITY GSCI,SPGSCITR Index,world,commodity,1970-01-02 0:00,2026-06-01 0:00
+S&P GSCI Spot,SPGSCI_SnP_GSCI_Spot.xlsx,COMMODITY GSCI SPOT,SPGSCI Index,world,commodity,1970-01-02 0:00,2026-06-01 0:00
+S&P Metals and Mining Select Industry Index TR,SPSIMMTR_SnP_Metals_Mining.xlsx,COMMODITY MINING,SPSIMMTR Index,world,commodity,1999-12-31 0:00,2026-06-01 0:00
+S&P Oil Gas Exploration and Production Industry Index TR,SPSIOPTR_SnP_Oil_Gas_Exploration_Production.xlsx,COMMODITY OIL,SPSIOPTR Index,world,commodity,1999-12-31 0:00,2026-06-01 0:00
+Barclays Emerging Markets USD,EMUSTRUU_Barclays_Emerging_Markets_USD.xlsx,EM AGG,EMUSTRUU Index,emerging,bond,1993-01-29 0:00,2026-06-01 0:00
+J.P. Morgan EMBI Global,JPEIGLBL_JP_Morgan_EMBI_Global.xlsx,EMBI GLOBAL,JPEIGLBL Index,emerging,bond,1993-12-31 0:00,2026-06-01 0:00
+Barclays Euro Agg Corporate,LECPTREU_Barclays_Euro_Agg_Corporate.xlsx,EURO AGG CORP,LECPTREU Index,europe,bond,1998-06-30 0:00,2026-06-01 0:00
+Barclays Euro Govt Inflation Linked Bond All Maturities,BEIG1T_Barclays_Euro_Gvt_Inflation_Linked_Bond_All_Maturities.xlsx,EURO I-LINKED GOVT,BEIG1T Index,europe,bond,1999-12-31 0:00,2026-06-01 0:00
+Barclays Global Govt 7-10 Yrs Hedged USD,H04792US_LGY7TRUH_Barclays_Global_Gvt_7_10_Yrs_Hedged_USD.xlsx,GLOBAL GVT 7-10 HEDGED,LGY7TRUH Index,world,bond,1987-06-30 0:00,2026-06-01 0:00
+Bloomberg Barclays Global Treasury USD Hedged,BTSYTRUH_Bloomberg_Barclays_Global_Treasury_USD_Hedged.xlsx,GLOBAL TREASURY HEDGED,BTSYTRUH Index,world,bond,1987-03-31 0:00,2026-06-01 0:00
+MSCI All Country World Index USD,MXWD_MSCI_All_Country_World_Index_USD.xlsx,MSCI ACWI,MXWD Index,world,equity,1987-12-31 0:00,2026-06-01 0:00
+MSCI All Country World Index USD Hedged,MXCXDMHR_MSCI_All_Country_World_Index_USD_Hedged.xlsx,MSCI ACWI HEDGED,MXCXDMHR Index,world,equity,1998-12-31 0:00,2026-06-01 0:00
+MSCI Emerging Markets,MXEF_MSCI_Emerging Markets.xlsx,MSCI EM,MXEF Index,emerging,equity,1987-12-31 0:00,2026-06-01 0:00
+MSCI Emerging Mkts Currency Index,MXEF0CX0_MSCI_Emerging_Mkts_Currency_Index.xlsx,MSCI EM CURRENCY,MXEF0CX0 Index,emerging,currency,1997-10-31 0:00,2026-06-01 0:00
+MSCI Emerging Markets Net Return Index,M1EF_MSCI_Emerging_Mkts_Net_Return_Index.xlsx,MSCI EM NET,M1EF Index,emerging,equity,2000-12-29 0:00,2026-06-01 0:00
+MSCI World ex US,M1WOU_MSCI_World_ex_US.xlsx,MSCI X US,M1WOU Index,world,equity,1969-12-31 0:00,2026-06-01 0:00
+Bloomberg Barclays Municipal Bond,LMBITR_Bloomberg_Barclays_Muniicipal_Bond.xlsx,MUNICIPAL BOND,LMBITR Index,us,bond,1980-03-31 0:00,2026-06-01 0:00
+Barclays Pan Euro Agg Corporate Hedged USD,H02549US_LP05TRUH_Barclays_Pan_Euro_Agg_Corporate_Hedged_USD.xlsx,PAN EURO AGG CORP HEDGED,LP05TRUH Index,europe,bond,1999-01-29 0:00,2026-06-01 0:00
+Barclays Pan European High Yield,LP01TREU_Barclays_Pan_European_High_Yield.xlsx,PAN EURO HY,LP01TREU Index,europe,bond,1999-01-04 0:00,2026-06-01 0:00
+Barclays Pan European High Yield Hedged USD,LP01TRUH_Barclays_Pan_European_High_Yiled_Hedged_USD.xlsx,PAN EURO HY HEDGED,LP01TRUH Index,europe,bond,1999-01-29 0:00,2026-06-01 0:00
+CBOE S&P 500 PutWrite Index,PUT_CBOE_SnP500_PutWrite_Index.xlsx,PUT WRITE,PUT Index,us,equity,1986-06-30 0:00,2026-06-01 0:00
+Russel 3000 TR,RU30INTR_Russell_3000.xlsx,RUSSEL 3000,RU30INTR Index,us,equity,1978-12-29 0:00,2026-06-01 0:00
+Bloomberg Barclays US Agg ABS,LUABTRUU_Bloomberg_Barclays_US_Agg_ABS.xlsx,US ABS,LUABTRUU Index,us,bond,1991-12-31 0:00,2026-06-01 0:00
+Bloomberg Barclays US Agg Bond,LBUSTRUU_Bloomberg_Barclays_US_Agg_bond.xlsx,US AGG,LBUSTRUU Index,us,bond,1976-03-31 0:00,2026-06-01 0:00
+Barclays US Corporate High Yield,LF98TRUU_Barclays_US_Corporate_High_Yield.xlsx,US HY,LF98TRUU Index,us,bond,1983-07-29 0:00,2026-06-01 0:00
+Barclays US Corporate,LUACTRUU_Barclays_US_Corporate.xlsx,US IG,LUACTRUU Index,us,bond,1973-01-31 0:00,2026-06-01 0:00
+Bloomberg Barclays US Long Treasury Credit,BFALTRUU_Bloomberg_Barclays_US_Long_Gvt_Credit.xlsx,US LONG BOND,BFALTRUU Index,us,bond,1976-03-31 0:00,2026-06-01 0:00
+Bloomberg Barclays US Inflation Protected 7+,BCIT5T_Barclays_US_Govt_Inflation_Linked_7_10_Yrs.xlsx,US LONG TIPS,BCIT5T Index,us,bond,1997-02-28 0:00,2026-06-01 0:00
+Barclays US Treasury Inflation Linked Notes,LBUTTRUU_Barclays_US_Treasury_Inflation_Linked_Notes.xlsx,US SHORT TIPS,LBUTTRUU Index,us,bond,1997-03-31 0:00,2026-06-01 0:00
+Bloomberg Barclays Global Aggregate Bond,LEGATRUU_Bloomberg_Barclays_Global_Aggregate_Bond.xlsx,WORLD AGG,LEGATRUU Index,world,bond,1990-01-01 0:00,2026-06-01 0:00

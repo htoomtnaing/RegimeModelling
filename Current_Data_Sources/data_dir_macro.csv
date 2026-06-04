@@ -1,0 +1,5 @@
+index_name,file_name,index_short_name,ticker,region,category,start_date,end_date
+Fama French 5 Factors Daily,F-F_Research_Data_5_Factors_2x3_US_daily.csv,FF 5 FACTORS DAILY,,us,factor,1963-07-01 0:00,2026-04-30 0:00
+Fama French 5 Factors Monthly,F-F_Research_Data_5_Factors_2x3_US_monthly.csv,FF 5 FACTORS MONTHLY,,us,factor,1963-07-31 0:00,2026-04-30 0:00
+CPI Interest Rates,CPI_InterestRates.csv,CPI INTEREST RATES,,us,macro,1925-12-31 0:00,2024-12-31 0:00
+Interest Rate Daily,Interest_Rate_Daily.csv,INTEREST RATE DAILY,,us,macro,1954-01-04 0:00,2025-02-13 0:00
