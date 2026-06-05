@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.uv-cache/
+.venv/
+JC_Notebooks/
+# Ignore Jupyter Notebook checkpoints
