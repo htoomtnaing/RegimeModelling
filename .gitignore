@@ -3,5 +3,7 @@ __pycache__/
 .ipynb_checkpoints/
 .uv-cache/
 .venv/
+.vscode/
 JC_Notebooks/
+.src/
 # Ignore Jupyter Notebook checkpoints
