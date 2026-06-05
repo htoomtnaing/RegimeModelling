@@ -5,5 +5,5 @@ __pycache__/
 .venv/
 .vscode/
 JC_Notebooks/
-.src/
+src/
 # Ignore Jupyter Notebook checkpoints
