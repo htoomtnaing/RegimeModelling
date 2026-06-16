@@ -147,24 +147,36 @@ def plot_factor_metric_table(
     factor_groups = {
         "Core Macro": [
             ("Equity", "Equity"),
-            ("Rates", "Interest Rates"),
+            ("Interest_Rate", "Interest Rates"),
             ("Credit", "Credit"),
             ("Commodities", "Commodities"),
         ],
         "Secondary Macro": [
-            ("EM", "Emerging Markets"),
-            ("FX", "Foreign Currency"),
-            ("ShortVol", "Short Volatility"),
-            ("Inflation", "Inflation"),
+            ("Emerging_Market", "Emerging Markets"),
+            ("Foreign_Currency", "Foreign Currency"),
+            ("Local_Inflation", "Local Inflation"),
+            ("Local_Equity", "Local Equity"),
         ],
     }
 
     rows = []
+    matched_factors = set()
     for group, factors in factor_groups.items():
         for factor, display_name in factors:
             column = f"{factor}_{metric_suffix}"
             if column in summary.columns:
                 rows.append((group, display_name, column))
+                matched_factors.add(factor)
+
+    suffix = f"_{metric_suffix}"
+    for column in summary.columns:
+        if not column.endswith(suffix):
+            continue
+        factor = column[: -len(suffix)]
+        if factor in matched_factors:
+            continue
+        display_name = factor.replace("_", " ")
+        rows.append(("Other Factors", display_name, column))
 
     if not rows:
         raise ValueError(f"No {metric_suffix.lower()} columns were found in the regime summary.")
