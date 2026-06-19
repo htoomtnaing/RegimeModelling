@@ -84,14 +84,24 @@ def compute_regime_stats(
     """
     Compute annualised mean returns and volatilities per regime.
 
+    Aligns factor_matrix and hard_labels on their common index before
+    computing statistics, so mismatched lengths (e.g. when dropna removes
+    different rows) are handled cleanly.
+
     Returns
     -------
     (means_df, vols_df)  — both shaped (n_regimes, n_factors), index = regime labels
     """
+    # Align on common index — factor_matrix may have more rows than hard_labels
+    # because get_factor_matrix_for_gmm(dropna=True) drops additional NaN rows
+    common = factor_matrix.index.intersection(hard_labels.index)
+    fm   = factor_matrix.loc[common]
+    labs = hard_labels.loc[common]
+
     means, vols = {}, {}
     for k, name in regime_names.items():
-        mask = hard_labels == k
-        sub = factor_matrix[mask]
+        mask = labs == k
+        sub  = fm[mask]
         means[name] = sub.mean() * trading_days
         vols[name]  = sub.std()  * np.sqrt(trading_days)
 
@@ -110,12 +120,13 @@ def get_regime_periods(
 
     Useful for overlaying shaded regions on price charts.
     """
+    # Map integer labels to names first for cleaner iteration
+    named = hard_labels.map(lambda k: regime_names.get(k, f"Regime_{k}"))
     records = []
     prev_label = None
     start_date = None
 
-    for date, label_int in hard_labels.items():
-        name = regime_names.get(label_int, f"Regime_{label_int}")
+    for date, name in named.items():
         if name != prev_label:
             if prev_label is not None:
                 records.append({"regime": prev_label, "start": start_date, "end": date})
@@ -123,7 +134,7 @@ def get_regime_periods(
             prev_label = name
 
     if prev_label is not None:
-        records.append({"regime": prev_label, "start": start_date, "end": hard_labels.index[-1]})
+        records.append({"regime": prev_label, "start": start_date, "end": named.index[-1]})
 
     return pd.DataFrame(records)
 
@@ -321,7 +332,7 @@ def plot_dashboard(
     # 4. Transition matrix
     trans = compute_transition_matrix(model.hard_labels, model.regime_names)
     _plot_heatmap_on_ax(trans * 100, ax4, title="Transition Probabilities (%)",
-                        cmap="Blues", fmt=".0f%%")
+                        cmap="Blues", fmt=".0f", suffix="%")
 
     fig.suptitle("Regime Model Dashboard", fontsize=14, y=1.01)
     fig.tight_layout()
@@ -334,8 +345,16 @@ def _plot_heatmap_on_ax(
     title: str = "",
     cmap: str = "RdYlGn",
     fmt: str = ".1f",
+    suffix: str = "",
 ) -> None:
-    """Internal helper: plot a DataFrame as a heatmap on an existing Axes."""
+    """Internal helper: plot a DataFrame as a heatmap on an existing Axes.
+
+    Parameters
+    ----------
+    fmt    : Python format spec for the cell value (e.g. ".1f", ".0f")
+    suffix : string appended after the formatted value (e.g. "%" or "")
+             Use this instead of embedding %% in fmt to avoid f-string conflicts.
+    """
     im = ax.imshow(df.values, cmap=cmap, aspect="auto")
     ax.set_xticks(range(len(df.columns)))
     ax.set_xticklabels(df.columns, rotation=45, ha="right", fontsize=8)
@@ -344,7 +363,9 @@ def _plot_heatmap_on_ax(
     ax.set_title(title, fontsize=10)
     for i in range(df.shape[0]):
         for j in range(df.shape[1]):
-            ax.text(j, i, f"{df.values[i, j]:{fmt}}", ha="center", va="center", fontsize=7)
+            val = df.values[i, j]
+            cell_text = format(val, fmt) + suffix
+            ax.text(j, i, cell_text, ha="center", va="center", fontsize=7)
 
 
 # ── Manual relabelling ────────────────────────────────────────────────────────

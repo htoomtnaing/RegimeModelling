@@ -148,68 +148,91 @@ def _auto_label_regimes(
     n_components: int,
 ) -> dict[int, str]:
     """
-    Automatically assign regime names based on factor mean patterns.
+    Automatically assign regime names using a score-based approach.
 
-    This is a *heuristic* — the human analyst should review and adjust labels
-    using regime_utils.py after inspecting the full output.
+    Each regime receives a composite score for each canonical label
+    (Crisis, Steady_State, WOI, Inflation).  The best match wins.
+    This avoids hard thresholds that break when the data distribution
+    shifts — instead it reasons about the *relative* position of each
+    regime among its peers.
 
-    Parameters
-    ----------
-    factor_means : pd.DataFrame  shape (n_components, n_factors)  — annualised
-    factor_vols  : pd.DataFrame  shape (n_components, n_factors)  — annualised
+    Scoring (all normalised to [0,1] within this model's components):
+        Crisis       — lowest equity + lowest credit + lowest short vol
+        Steady_State — highest equity return, penalised for high vol
+        WOI          — weak/negative equity (but not worst); elevated
+                       commodities or inflation; moderate vol
+        Inflation    — highest Local_Inflation mean
+
+    Surplus regimes (n_components > 4) receive suffixed labels: WOI_B, etc.
+
+    Always review output and override with relabel_regimes() if needed.
 
     Returns
     -------
     dict {cluster_index: label_string}
     """
     labels: dict[int, str] = {}
-    assigned: set[str] = set()
 
-    cols = list(factor_means.columns)
+    def _get(name):
+        if name in factor_means.columns:
+            return factor_means[name].astype(float)
+        return pd.Series(0.0, index=factor_means.index)
 
-    # ── Helper: get column value if present ──────────────────────────────────
-    def _get(df: pd.DataFrame, col: str, idx: int, default: float = 0.0) -> float:
-        if col in df.columns:
-            return float(df.loc[idx, col])
-        return default
+    def _getv(name):
+        if name in factor_vols.columns:
+            return factor_vols[name].astype(float)
+        return pd.Series(0.0, index=factor_vols.index)
 
-    # ── Step 1: Crisis — negative Equity AND negative Credit ─────────────────
-    eq_means  = factor_means.get("Equity",         pd.Series(0, index=factor_means.index))
-    cr_means  = factor_means.get("Credit",         pd.Series(0, index=factor_means.index))
-    infl_means= factor_means.get("Local_Inflation",pd.Series(0, index=factor_means.index))
+    eq    = _get("Equity")
+    cr    = _get("Credit")
+    sv    = _get("Short_Volatility")
+    infl  = _get("Local_Inflation")
+    commd = _get("Commodities")
+    eq_v  = _getv("Equity")
 
-    # Crisis = most negative equity regime (if negative at all)
-    crisis_candidate = int(eq_means.idxmin())
-    if eq_means[crisis_candidate] < 0:
-        labels[crisis_candidate] = "Crisis"
-        assigned.add("Crisis")
+    # Normalise each factor to [0, 1] across the n_components regimes
+    def _norm(s):
+        lo, hi = s.min(), s.max()
+        return (s - lo) / (hi - lo + 1e-12)
 
-    # ── Step 2: Inflation — highest Local_Inflation mean ─────────────────────
-    if "Local_Inflation" in factor_means.columns:
-        infl_ranks = infl_means.drop(index=list(labels.keys()), errors="ignore")
-        if not infl_ranks.empty:
-            infl_candidate = int(infl_ranks.idxmax())
-            # Only label as Inflation if its inflation mean is clearly above zero
-            if infl_means[infl_candidate] > 0:
-                labels[infl_candidate] = "Inflation"
-                assigned.add("Inflation")
+    # Score each regime for each canonical label.
+    # Higher score = better match for that label.
+    crisis_score = (1 - _norm(eq)) * 0.5 + (1 - _norm(cr)) * 0.3 + (1 - _norm(sv)) * 0.2
+    steady_score = _norm(eq) * 0.7 + (1 - _norm(eq_v)) * 0.3
+    woi_score    = (1 - _norm(eq)) * 0.3 + _norm(commd) * 0.35 + _norm(infl) * 0.35
+    infl_score   = _norm(infl)
 
-    # ── Step 3: WOI — elevated equity vol, positive equity mean ──────────────
-    remaining = [i for i in factor_means.index if i not in labels]
-    if "Equity" in factor_vols.columns and len(remaining) >= 2:
-        eq_vols_remaining = factor_vols.loc[remaining, "Equity"]
-        woi_candidate = int(eq_vols_remaining.idxmax())
-        # WOI should also have positive equity mean
-        if eq_means[woi_candidate] > 0:
-            labels[woi_candidate] = "WOI"
-            assigned.add("WOI")
+    # WOI should NOT be the true crash regime — penalise regimes that score
+    # very high on Crisis from being assigned WOI
+    woi_score    = woi_score * (1 - crisis_score * 0.8)
 
-    # ── Step 4: Remaining → Steady State ────────────────────────────────────
-    for i in factor_means.index:
-        if i not in labels:
-            labels[i] = "Steady_State"
+    scores = pd.DataFrame({
+        "Crisis":       crisis_score,
+        "Steady_State": steady_score,
+        "WOI":          woi_score,
+        "Inflation":    infl_score,
+    })
+
+    # Assign labels iteratively: canonical order ensures Crisis and Steady_State
+    # are placed first (they are the most distinct), then WOI, then Inflation.
+    canonical = ["Crisis", "Steady_State", "WOI", "Inflation"]
+    remaining  = list(factor_means.index)
+
+    for label in canonical:
+        if not remaining:
+            break
+        best = int(scores.loc[remaining, label].idxmax())
+        labels[best] = label
+        remaining.remove(best)
+
+    # Any surplus regimes: label with the best-matching canonical name + suffix
+    for idx in remaining:
+        best_label = scores.loc[idx].idxmax()
+        count = sum(1 for v in labels.values() if v.startswith(best_label))
+        labels[int(idx)] = f"{best_label}_{chr(64 + count)}"  # _A, _B, ...
 
     return labels
+
 
 
 # ── Main fitting function ─────────────────────────────────────────────────────
@@ -273,9 +296,24 @@ def fit_regime_model(
                 n_splits=cv_splits, n_init=n_init,
                 random_state=random_state, verbose=verbose,
             )
-            n_components = max(cv_scores, key=cv_scores.get)
+            # Use elbow detection rather than pure argmax:
+            # log-likelihood almost always improves with more components, so
+            # we pick the point where the marginal gain drops below 20% of the
+            # total gain — i.e. where the "elbow" is in the curve.
+            ns     = sorted(cv_scores)
+            scores = [cv_scores[n] for n in ns]
+            total_gain = scores[-1] - scores[0]
+            n_components = ns[-1]   # fallback: largest
+            if total_gain > 0:
+                for i in range(1, len(ns)):
+                    marginal = scores[i] - scores[i - 1]
+                    if marginal / total_gain < 0.20:
+                        n_components = ns[i - 1]
+                        break
             if verbose:
-                print(f"  Selected n_components = {n_components} (best CV log-lik = {cv_scores[n_components]:.4f})")
+                print(f"  Selected n_components = {n_components} "
+                      f"(elbow detection; CV log-lik = {cv_scores[n_components]:.4f})")
+                print(f"  Tip: override with n_components=4 to match the Two Sigma paper directly.")
         else:
             n_components = 4  # default: reproduce Two Sigma result
             if verbose:
@@ -367,9 +405,18 @@ def predict_current_regime(
     Predict the regime probabilities for the most recent *window_days* using
     the fitted model.  Useful for a "where are we now?" dashboard.
 
+    Parameters
+    ----------
+    model        : fitted RegimeModel
+    factor_matrix: the full factor matrix (with or without NaN rows) OR the
+                   clean GMM input matrix X — both are handled via dropna().
+    window_days  : number of recent observations to show probabilities for.
+
     Returns a Series {regime_label: probability} for the latest observation.
     """
-    recent = factor_matrix.dropna().tail(window_days)
+    # Ensure we only use the columns the model was fitted on, in the right order
+    cols   = model.factor_names
+    recent = factor_matrix[cols].dropna().tail(window_days)
     X_std  = model.scaler.transform(recent.values)
     probs  = model.gmm.predict_proba(X_std)
     latest_probs = probs[-1]
@@ -378,4 +425,4 @@ def predict_current_regime(
         model.regime_names.get(k, f"Regime_{k}"): float(p)
         for k, p in enumerate(latest_probs)
     }
-    return pd.Series(result, name="Current_Regime_Probability")
+    return pd.Series(result, name="Current_Regime_Probability").sort_values(ascending=False)
