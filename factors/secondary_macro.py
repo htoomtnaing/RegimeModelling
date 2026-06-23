@@ -41,6 +41,16 @@ from data_loader import (
     FX_GDP_MAP,
 )
 
+# ── Pandas version compatibility ──────────────────────────────────────────────
+# "ME" (Month End) was introduced in pandas 2.2. Older versions use "M".
+def _compat_freq(freq: str) -> str:
+    """Return a resample frequency compatible with the installed pandas version."""
+    major, minor = (int(x) for x in pd.__version__.split(".")[:2])
+    if (major, minor) >= (2, 2):
+        return freq
+    _MAP = {"ME": "M", "QE": "Q", "YE": "A", "BME": "BM", "BQE": "BQ", "BYE": "BA"}
+    return _MAP.get(freq, freq)
+
 
 # ── Foreign Currency ──────────────────────────────────────────────────────────
 
@@ -185,7 +195,7 @@ def _time_series_momentum(
     cumret = returns.rolling(lookback_days, min_periods=lookback_days // 2).sum()
     signal = np.sign(cumret)
     # Hold signal constant until next rebalance date
-    signal = signal.resample(rebalance_freq).last().reindex(returns.index, method="ffill")
+    signal = signal.resample(_compat_freq(rebalance_freq)).last().reindex(returns.index, method="ffill")
     signal = signal.fillna(0)
     n_assets = (signal != 0).sum(axis=1).replace(0, np.nan)
     equal_signal = signal.div(n_assets, axis=0)

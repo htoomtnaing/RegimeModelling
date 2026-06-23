@@ -264,23 +264,45 @@ def plot_factor_heatmap(
 
 
 def plot_cv_scores(
-    cv_scores: dict[int, float],
-    aic_bic: Optional[dict] = None,
-    title: str = "Model Selection: CV Log-Likelihood",
-    figsize: tuple = (8, 4),
+    cv_scores:  dict[int, float],
+    selected_n: Optional[int] = None,
+    aic_bic:    Optional[dict] = None,
+    title:      str = "Model Selection: CV Log-Likelihood",
+    figsize:    tuple = (8, 4),
 ) -> plt.Figure:
     """
-    Plot CV log-likelihood (and optionally AIC/BIC) vs number of components.
+    Plot CV log-likelihood vs number of components.
+
+    Parameters
+    ----------
+    cv_scores  : {n_components: mean_log_likelihood} from model.cv_scores
+    selected_n : elbow-selected n from model.n_components.  When provided,
+                 the dashed line shows the actual model choice.  If omitted,
+                 the elbow rule is re-applied here so the plot always agrees
+                 with fit_regime_model rather than showing the raw peak.
+    aic_bic    : optional {n: {'aic': ..., 'bic': ...}} for twin-axis overlay
     """
     fig, ax = plt.subplots(figsize=figsize)
-    ns = sorted(cv_scores)
+    ns     = sorted(cv_scores)
     scores = [cv_scores[n] for n in ns]
+
     ax.plot(ns, scores, "o-", color="#4C9BE8", label="CV log-likelihood", linewidth=2)
-    best_n = max(cv_scores, key=cv_scores.get)
-    ax.axvline(best_n, color="#E84040", linestyle="--", alpha=0.7, label=f"Best n={best_n}")
+
+    # Determine which n to highlight — always the elbow, never the raw peak
+    if selected_n is None:
+        total_gain = scores[-1] - scores[0]
+        selected_n = ns[-1]
+        if total_gain > 0:
+            for i in range(1, len(ns)):
+                if (scores[i] - scores[i - 1]) / total_gain < 0.20:
+                    selected_n = ns[i - 1]
+                    break
+
+    ax.axvline(selected_n, color="#E84040", linestyle="--", alpha=0.7,
+               label=f"Selected n={selected_n} (elbow)")
 
     if aic_bic:
-        ax2 = ax.twinx()
+        ax2  = ax.twinx()
         aics = [aic_bic[n]["aic"] for n in ns]
         bics = [aic_bic[n]["bic"] for n in ns]
         ax2.plot(ns, aics, "s--", color="#F5A623", label="AIC", linewidth=1.5)
