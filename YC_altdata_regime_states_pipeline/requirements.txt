@@ -1,0 +1,21 @@
+# Self-contained dependencies for the two OOS regime-kappa notebooks.
+# Lean by design: only what A/B and regime_taa.py actually import. Pinned to
+# versions with cp314 (Python 3.14) wheels so a fresh venv installs cleanly with
+#   pip install --only-binary=:all: -r requirements.txt
+#
+# (The parent project's full requirements are intentionally NOT used here: wrds
+#  pins sqlalchemy<2, which has no Python-3.14 wheel, and none of wrds / duckdb /
+#  statsmodels / seaborn etc. are needed to classify regimes or compute kappa.)
+
+# --- core compute ---
+numpy==2.4.6
+pandas==3.0.3
+scipy==1.17.1
+matplotlib==3.10.9
+scikit-learn
+
+# --- Jupyter stack (start.bat runs `jupyter lab`; headless run uses nbconvert) ---
+jupyterlab
+ipykernel==7.2.0
+nbconvert==7.17.1
+nbformat==5.10.4
