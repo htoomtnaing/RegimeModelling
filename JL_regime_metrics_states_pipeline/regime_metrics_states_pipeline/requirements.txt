@@ -1,0 +1,11 @@
+numpy
+pandas
+scipy
+scikit-learn
+matplotlib
+jinja2
+jupyterlab
+ipykernel
+nbclient
+nbconvert
+nbformat
