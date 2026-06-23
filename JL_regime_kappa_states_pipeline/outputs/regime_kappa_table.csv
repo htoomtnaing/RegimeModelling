@@ -1,6 +1,0 @@
-config,n_feat,n_PCs,n_rec,GMM,HMM
-macro+eng,141,62,58,0.269,0.271
-comb_all/all,176,76,58,0.34,0.354
-comb_all/bn_meanrank,76,28,58,0.496,0.243
-altdata_full/all,35,19,58,0.146,0.315
-altdata_full/bn_meanrank,9,7,58,0.33,0.35
