@@ -1,0 +1,20 @@
+primary_label,secondary_label,name,bbg_ticker
+Equity,Equity,MSCI All-Country World Index 100% Hedged to USD,MXCXDMHR Index
+Rates,Rates,Bloomberg Barclays Global Government 7 to 10 Years Hedged to USD,LGY7TRUH Index
+Credit,US IG,Bloomberg Barclays US Corporate,LUACTRUU Index
+Credit,US HY,Bloomberg Barclays US Corporate High Yield,LF98TRUU Index
+Credit,EU IG,Bloomberg Barclays Pan-European Aggregate Corporate Hedged to USD,LP05TRUH Index
+Credit,EU HY,Bloomberg Barclays Pan-European High Yield Hedged to USD,LP01TRUH Index
+Commodities,Commodities,Bloomberg Commodity Index,BCOMTR Index
+EM,EM Equity,MSCI Emerging Markets Net Return Index,M1EF Index
+EM,EM Credit,Bloomberg Barclays Emerging Markets USD Aggregate,EMUSTRUU Index
+EM,EM Currency,MSCI Emerging Markets Currency Index,MXEF0CX0 Index
+FX,USDJPY,USDJPY,USDJPY BGN Curncy
+FX,USDCHF,USDCHF,USDCHF BGN Curncy
+FX,AUDUSD,AUDUSD,AUDUSD BGN Curncy
+FX,NZDUSD,NZDUSD,NZDUSD BGN Curncy
+FX,USDCAD,USDCAD,USDCAD BGN Curncy
+FX,EURUSD,EURUSD,EURUSD BGN Curncy
+FX,GBPUSD,GBPUSD,GBPUSD BGN Curncy
+Local Inflation,Local Inflation,Bloomberg Barclays US Treasury Inflation-Linked Notes,LBUTTRUU Index
+Local Equity,Local Equity,S&P500 Index,SPY US Equity
