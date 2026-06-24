@@ -1,0 +1,16 @@
+__pycache__/
+.agents/
+.vscode/
+YC_altdata_regime_states_pipeline/
+YC_RegimeModelling-main/
+JL_regime_metrics_states_pipeline/
+Testing/
+plan.md
+jupytext_run.ipynb
+AGENTS.md
+context_handover.json
+integrated_regime_pipeline.ipynb
+jupytext_run.ipynb
+regime_metrics_states.ipynb
+regime_analysis.ipynb
+src/__pycache__/
