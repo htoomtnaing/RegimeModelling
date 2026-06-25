@@ -1,0 +1,11 @@
+engine,config,n_feat,n_PCs,n_states,silhouette,BIC,ari_mean,ari_std
+GMM,macro+eng,141,62,6,-0.032,112915.5,0.406,0.057
+GMM,comb_all/all,176,76,6,0.032,137984.5,0.343,0.075
+GMM,comb_all/bn_meanrank,76,28,6,-0.002,48352.3,0.53,0.194
+GMM,altdata_full/all,35,19,6,-0.039,31646.1,0.534,0.104
+GMM,altdata_full/bn_meanrank,9,7,6,0.025,10872.7,0.761,0.103
+HMM,macro+eng,141,62,6,0.003,112087.4,0.642,0.118
+HMM,comb_all/all,176,76,6,0.003,137567.4,0.777,0.066
+HMM,comb_all/bn_meanrank,76,28,6,0.045,47568.5,0.609,0.057
+HMM,altdata_full/all,35,19,6,-0.034,31107.0,0.841,0.08
+HMM,altdata_full/bn_meanrank,9,7,6,0.024,10111.8,0.87,0.07

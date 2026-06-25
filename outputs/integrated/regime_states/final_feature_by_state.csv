@@ -1,0 +1,55 @@
+state,is_crisis,feature,description,n_months,mean_z,mean_transformed,mean_untransformed
+0,0,FF_RF,Fama-French risk-free rate,34,2.282,0.01,0.01
+0,0,IR_dgs1,1y Treasury yield change,34,0.517,0.2146,13.6462
+0,0,IR_dtb6,6m Treasury yield change,34,0.808,0.3081,12.6071
+0,0,IR_dtb3,3m Treasury yield change,34,0.353,0.1218,12.5562
+0,0,FF_Mkt_RF,Fama-French market excess return,34,-0.383,-0.01,-0.01
+0,0,BAB_USA,Betting-against-beta factor,34,-0.005,0.0081,0.0081
+0,0,IR_dgs2,2y Treasury yield change,34,0.676,0.2768,13.5541
+0,0,FF_RMW,Fama-French profitability factor,34,0.073,0.0051,0.0051
+0,0,IR_t10y2y,,34,-0.332,-0.0744,-0.4135
+1,0,FF_RF,Fama-French risk-free rate,193,0.164,0.0039,0.0039
+1,0,IR_dgs1,1y Treasury yield change,193,0.049,0.0198,5.2911
+1,0,IR_dtb6,6m Treasury yield change,193,0.003,0.0148,4.9433
+1,0,IR_dtb3,3m Treasury yield change,193,0.031,0.0159,4.8298
+1,0,FF_Mkt_RF,Fama-French market excess return,193,0.078,0.0105,0.0105
+1,0,BAB_USA,Betting-against-beta factor,193,-0.041,0.0069,0.0069
+1,0,IR_dgs2,2y Treasury yield change,193,0.037,0.0145,5.5192
+1,0,FF_RMW,Fama-French profitability factor,193,-0.055,0.0021,0.0021
+1,0,IR_t10y2y,,193,0.034,0.0074,0.5852
+2,0,FF_RF,Fama-French risk-free rate,14,0.476,0.0048,0.0048
+2,0,IR_dgs1,1y Treasury yield change,14,-2.201,-0.915,5.7814
+2,0,IR_dtb6,6m Treasury yield change,14,-1.637,-0.5829,5.2379
+2,0,IR_dtb3,3m Treasury yield change,14,-1.958,-0.6386,4.88
+2,0,FF_Mkt_RF,Fama-French market excess return,14,-1.057,-0.0401,-0.0401
+2,0,BAB_USA,Betting-against-beta factor,14,-1.274,-0.0356,-0.0356
+2,0,IR_dgs2,2y Treasury yield change,14,-1.909,-0.7836,6.1136
+2,0,FF_RMW,Fama-French profitability factor,14,-0.425,-0.0065,-0.0065
+2,0,IR_t10y2y,,14,2.032,0.4529,0.9314
+3,0,FF_RF,Fama-French risk-free rate,170,-1.013,0.0006,0.0006
+3,0,IR_dgs1,1y Treasury yield change,170,0.045,0.0184,1.0191
+3,0,IR_dtb6,6m Treasury yield change,170,0.016,0.0196,0.8819
+3,0,IR_dtb3,3m Treasury yield change,170,0.042,0.0195,0.7946
+3,0,FF_Mkt_RF,Fama-French market excess return,170,0.124,0.0125,0.0125
+3,0,BAB_USA,Betting-against-beta factor,170,0.115,0.0122,0.0122
+3,0,IR_dgs2,2y Treasury yield change,170,0.037,0.0145,1.2872
+3,0,FF_RMW,Fama-French profitability factor,170,-0.064,0.0019,0.0019
+3,0,IR_t10y2y,,170,-0.13,-0.0294,1.4855
+4,0,FF_RF,Fama-French risk-free rate,98,1.065,0.0065,0.0065
+4,0,IR_dgs1,1y Treasury yield change,98,-0.023,-0.01,8.6839
+4,0,IR_dtb6,6m Treasury yield change,98,-0.04,-0.0009,8.0036
+4,0,IR_dtb3,3m Treasury yield change,98,0.02,0.0122,7.8995
+4,0,FF_Mkt_RF,Fama-French market excess return,98,0.022,0.008,0.008
+4,0,BAB_USA,Betting-against-beta factor,98,0.093,0.0115,0.0115
+4,0,IR_dgs2,2y Treasury yield change,98,-0.051,-0.0217,9.0071
+4,0,FF_RMW,Fama-French profitability factor,98,0.011,0.0036,0.0036
+4,0,IR_t10y2y,,98,-0.022,-0.0052,0.4866
+5,1,FF_RF,Fama-French risk-free rate,86,-0.56,0.0019,0.0019
+5,1,IR_dgs1,1y Treasury yield change,86,-0.018,-0.0079,2.7162
+5,1,IR_dtb6,6m Treasury yield change,86,-0.046,-0.0029,2.4908
+5,1,IR_dtb3,3m Treasury yield change,86,0.002,0.0064,2.3593
+5,1,FF_Mkt_RF,Fama-French market excess return,86,-0.121,0.0017,0.0017
+5,1,BAB_USA,Betting-against-beta factor,86,-0.032,0.0072,0.0072
+5,1,IR_dgs2,2y Treasury yield change,86,-0.053,-0.0226,3.0006
+5,1,FF_RMW,Fama-French profitability factor,86,0.277,0.0098,0.0098
+5,1,IR_t10y2y,,86,0.007,0.0013,1.0856

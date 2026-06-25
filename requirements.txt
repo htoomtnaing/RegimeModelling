@@ -1,0 +1,16 @@
+numpy
+pandas
+scipy
+scikit-learn
+matplotlib
+openpyxl
+pyarrow
+jinja2
+jupyterlab
+ipykernel
+ipython
+nbclient
+nbconvert
+nbformat
+jupytext
+kneed

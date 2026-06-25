@@ -1,0 +1,55 @@
+state,is_crisis,feature,description,n_months,mean_z,mean_transformed,mean_untransformed
+0,1,FF_RF,Risk-free rate — 1-month US T-bill (Fama-French),58,-0.811,0.0012,0.0012
+0,1,IR_dtb3,3-month US Treasury bill rate,58,-0.203,-0.0612,1.39
+0,1,IR_dtb6,6-month US Treasury bill rate,58,-0.181,-0.0524,1.5491
+0,1,IR_dgs1,1-year US Treasury yield,58,-0.121,-0.0505,1.7752
+0,1,FF_Mkt_RF,"Equity market excess return (Mkt-RF, Fama-French)",58,-0.475,-0.0141,-0.0141
+0,1,IR_dgs2,2-year US Treasury yield,58,-0.128,-0.0531,2.0984
+0,1,BAB_USA,Betting-Against-Beta factor (US),58,-0.236,0.0002,0.0002
+0,1,FF_RMW,Profitability factor — Robust-minus-Weak (Fama-French),58,0.318,0.0108,0.0108
+0,1,BLM_SPGSCI,S&P GSCI broad commodity index return,58,-0.126,-0.5337,-0.5337
+1,0,FF_RF,Risk-free rate — 1-month US T-bill (Fama-French),34,0.415,0.0047,0.0047
+1,0,IR_dtb3,3-month US Treasury bill rate,34,-0.404,-0.1274,5.4559
+1,0,IR_dtb6,6-month US Treasury bill rate,34,-0.375,-0.1229,5.5512
+1,0,IR_dgs1,1-year US Treasury yield,34,-0.354,-0.1476,5.8232
+1,0,FF_Mkt_RF,"Equity market excess return (Mkt-RF, Fama-French)",34,-0.276,-0.0053,-0.0053
+1,0,IR_dgs2,2-year US Treasury yield,34,-0.358,-0.1474,6.0279
+1,0,BAB_USA,Betting-Against-Beta factor (US),34,-0.747,-0.0174,-0.0174
+1,0,FF_RMW,Profitability factor — Robust-minus-Weak (Fama-French),34,0.238,0.0089,0.0089
+1,0,BLM_SPGSCI,S&P GSCI broad commodity index return,34,0.038,0.4054,0.4054
+2,0,FF_RF,Risk-free rate — 1-month US T-bill (Fama-French),23,2.555,0.0108,0.0108
+2,0,IR_dtb3,3-month US Treasury bill rate,23,-0.009,0.0027,13.1283
+2,0,IR_dtb6,6-month US Treasury bill rate,23,1.017,0.3844,13.1074
+2,0,IR_dgs1,1-year US Treasury yield,23,0.447,0.1854,14.157
+2,0,FF_Mkt_RF,"Equity market excess return (Mkt-RF, Fama-French)",23,-0.718,-0.0249,-0.0249
+2,0,IR_dgs2,2-year US Treasury yield,23,0.726,0.297,13.9183
+2,0,BAB_USA,Betting-Against-Beta factor (US),23,-0.087,0.0053,0.0053
+2,0,FF_RMW,Profitability factor — Robust-minus-Weak (Fama-French),23,-0.187,-0.001,-0.001
+2,0,BLM_SPGSCI,S&P GSCI broad commodity index return,23,-0.448,-2.3693,-2.3693
+3,0,FF_RF,Risk-free rate — 1-month US T-bill (Fama-French),243,0.239,0.0042,0.0042
+3,0,IR_dtb3,3-month US Treasury bill rate,243,0.045,0.0203,5.1257
+3,0,IR_dtb6,6-month US Treasury bill rate,243,0.013,0.0184,5.2427
+3,0,IR_dgs1,1-year US Treasury yield,243,0.055,0.0223,5.6381
+3,0,FF_Mkt_RF,"Equity market excess return (Mkt-RF, Fama-French)",243,0.062,0.0098,0.0098
+3,0,IR_dgs2,2-year US Treasury yield,243,0.032,0.0127,5.9194
+3,0,BAB_USA,Betting-Against-Beta factor (US),243,0.052,0.0101,0.0101
+3,0,FF_RMW,Profitability factor — Robust-minus-Weak (Fama-French),243,-0.061,0.002,0.002
+3,0,BLM_SPGSCI,S&P GSCI broad commodity index return,243,-0.014,0.1107,0.1107
+4,0,FF_RF,Risk-free rate — 1-month US T-bill (Fama-French),68,1.388,0.0074,0.0074
+4,0,IR_dtb3,3-month US Treasury bill rate,68,0.121,0.0456,9.1024
+4,0,IR_dtb6,6-month US Treasury bill rate,68,-0.08,-0.0155,9.2557
+4,0,IR_dgs1,1-year US Treasury yield,68,-0.18,-0.0751,10.084
+4,0,FF_Mkt_RF,"Equity market excess return (Mkt-RF, Fama-French)",68,0.213,0.0165,0.0165
+4,0,IR_dgs2,2-year US Treasury yield,68,-0.185,-0.0763,10.376
+4,0,BAB_USA,Betting-Against-Beta factor (US),68,0.275,0.0177,0.0177
+4,0,FF_RMW,Profitability factor — Robust-minus-Weak (Fama-French),68,0.068,0.005,0.005
+4,0,BLM_SPGSCI,S&P GSCI broad commodity index return,68,0.132,0.9418,0.9418
+5,0,FF_RF,Risk-free rate — 1-month US T-bill (Fama-French),169,-1.055,0.0005,0.0005
+5,0,IR_dtb3,3-month US Treasury bill rate,169,0.039,0.0185,0.645
+5,0,IR_dtb6,6-month US Treasury bill rate,169,0.013,0.0185,0.7289
+5,0,IR_dgs1,1-year US Treasury yield,169,0.046,0.0186,0.8524
+5,0,FF_Mkt_RF,"Equity market excess return (Mkt-RF, Fama-French)",169,0.142,0.0133,0.0133
+5,0,IR_dgs2,2-year US Treasury yield,169,0.045,0.0178,1.0915
+5,0,BAB_USA,Betting-Against-Beta factor (US),169,0.057,0.0103,0.0103
+5,0,FF_RMW,Profitability factor — Robust-minus-Weak (Fama-French),169,-0.071,0.0017,0.0017
+5,0,BLM_SPGSCI,S&P GSCI broad commodity index return,169,0.063,0.5506,0.5506
