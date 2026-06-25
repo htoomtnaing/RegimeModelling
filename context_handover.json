@@ -1,0 +1,106 @@
+{
+  "repo": "RegimeModelling",
+  "timestamp_utc": "2026-06-24T00:00:00Z",
+  "objective": "Keep the repository documentation and handoff trail aligned with the consolidated runtime layout.",
+  "current_state": {
+    "active_runtime": "integrated_regime_pipeline.py plus the src/ package",
+    "canonical_inputs": [
+      "Data/Bloomberg_Data/",
+      "Data/Farma_French/",
+      "Data/Macro/",
+      "Data/fredmd_current.csv",
+      "Data/nber_usrec.csv",
+      "Data/altdata_monthly.csv",
+      "Data/altdata_tcodes.csv",
+      "Data/etf_returns.csv"
+    ],
+    "integrated_outputs_root": "outputs/integrated/",
+    "monthly_bridge_file": "outputs/integrated/regime_states/states_altdata_bnmeanrank_hmm_walkforward.csv"
+  },
+  "completed_changes": [
+    "Moved the active helper modules into src/ and converted them to package-qualified imports.",
+    "Moved the factors package into src/factors/.",
+    "Moved the canonical monthly regime helper into src/regime_taa.py.",
+    "Updated integrated_regime_pipeline.py to import helpers from src and to remove active JL/YC sys.path dependencies.",
+    "Expanded the integrated notebook markdown so it reflects the source notebooks' narrative at the major stage level.",
+    "Updated README.md to describe the consolidated runtime layout, input root, output root, and transitional monthly filenames.",
+    "Kept the legacy JL and YC folders in place as reference material only."
+  ],
+  "new_features": [
+    {
+      "name": "Consolidated src package",
+      "description": "All active helper code now lives under src/, with package-qualified imports from the integrated pipeline."
+    },
+    {
+      "name": "Refreshed monthly contract",
+      "description": "The monthly stage is documented as a JL metrics-state workflow with Recall, Precision, and F1 selection against NBER recessions."
+    },
+    {
+      "name": "Direct execution path",
+      "description": "The integrated pipeline runs directly from integrated_regime_pipeline.py against the consolidated helper modules."
+    },
+    {
+      "name": "Transitional compatibility outputs",
+      "description": "Legacy monthly filenames such as regime_kappa_table.csv and table_diagnostics_summary.csv are documented as backward-compatibility artifacts only."
+    }
+  ],
+  "configuration_changes": [
+    {
+      "name": "Helper import style",
+      "value": "from src import data_cleaner as dc, data_loader as dl, factor_construction as fc, regime_model as rm, regime_utils as ru, regime_taa as rt"
+    },
+    {
+      "name": "Canonical input root",
+      "value": "Data/"
+    },
+    {
+      "name": "Integrated output root",
+      "value": "outputs/integrated/"
+    }
+  ],
+  "dependencies": {
+    "new_third_party_packages": [],
+    "notes": [
+      "The consolidation reused the existing scientific Python stack.",
+      "No requirements.txt changes were required for the move."
+    ]
+  },
+  "implementation_notes": [
+    "src/data_loader.py resolves Data/ from the project root rather than src/Data.",
+    "The integrated pipeline now treats JL_regime_metrics_states_pipeline/regime_metrics_states.ipynb as the monthly source of truth.",
+    "The integrated notebook markdown is improved but still does not mirror every notebook-local markdown cell one-for-one.",
+    "The monthly bridge file remains outputs/integrated/regime_states/states_altdata_bnmeanrank_hmm_walkforward.csv and should retain the date/state/crisis/probability columns."
+  ],
+  "key_files": {
+    "updated_docs": [
+      "README.md",
+      "context_handover.json"
+    ],
+    "updated_pipeline": [
+      "integrated_regime_pipeline.py"
+    ],
+    "active_packages": [
+      "src/data_loader.py",
+      "src/data_cleaner.py",
+      "src/factor_construction.py",
+      "src/regime_model.py",
+      "src/regime_utils.py",
+      "src/regime_taa.py",
+      "src/factors/core_macro.py",
+      "src/factors/secondary_macro.py",
+      "src/factors/style.py"
+    ]
+  },
+  "next_agent": {
+    "priority_tasks": [
+      "If needed, backfill the remaining notebook-local markdown into integrated_regime_pipeline.py.",
+      "Keep the active import path centered on src/.",
+      "Preserve the YC bridge CSV contract and the monthly probability columns."
+    ],
+    "do_not_change": [
+      "Do not reintroduce runtime imports from JL or YC helper folders.",
+      "Do not move canonical inputs out of Data/.",
+      "Do not add new third-party dependencies unless a later implementation pass proves they are required."
+    ]
+  }
+}
