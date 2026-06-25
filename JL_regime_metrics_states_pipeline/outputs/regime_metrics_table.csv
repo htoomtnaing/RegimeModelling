@@ -1,6 +1,0 @@
-config,n_feat,n_PCs,n_rec,Recall_GMM,Recall_HMM,Precision_GMM,Precision_HMM,F1_GMM,F1_HMM
-macro+eng,141,62,58,0.259,0.328,0.429,0.352,0.323,0.34
-comb_all/all,176,76,58,0.397,0.603,0.411,0.34,0.404,0.435
-comb_all/bn_meanrank,76,28,58,0.586,0.293,0.515,0.333,0.548,0.312
-altdata_full/all,35,19,58,0.397,0.328,0.192,0.432,0.259,0.373
-altdata_full/bn_meanrank,9,7,58,0.328,0.414,0.463,0.414,0.384,0.414

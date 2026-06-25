@@ -1,5 +1,0 @@
-,config,model,n_feats,n_pcs,n_states,silhouette,bic,ari_mean,ari_std,buyhold_sharpe,overlay_sharpe,buyhold_maxdd,overlay_maxdd,dd_improvement,sharpe_spread
-altdata_bnmeanrank_kmeans,altdata_full/bn_meanrank,kmeans,9,7,6,0.076,10896.9,0.909,0.143,0.644,0.865,-0.508,-0.168,0.34,5.601
-altdata_bnmeanrank_hmm,altdata_full/bn_meanrank,hmm,9,7,6,0.009,9926.1,0.858,0.073,0.644,0.644,-0.508,-0.508,0.0,1.881
-altdataonly_gmm,alt_data_only,gmm,14,9,6,0.007,15407.8,0.507,0.098,0.644,0.816,-0.508,-0.357,0.151,5.653
-altdataonly_hmm,alt_data_only,hmm,14,9,6,-0.014,14695.8,0.798,0.143,0.644,1.224,-0.508,-0.135,0.372,2.578
