@@ -115,6 +115,8 @@ python 02_regime_metrics_states.py
 python 03_ETF_SAA_DR_RSDR_CVaR_Analysis_formula_explained.py
 ```
 
+`requirements.txt` includes the runtime stack plus the notebook and export helpers used by the workflow, including the `duckdb` fallback used by the CVaR script.
+
 Or run the integrated pipeline:
 
 ```bash
